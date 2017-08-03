@@ -1,0 +1,19 @@
+heuristic analysis
+
+Heuristic 1: Legal Player Move Counts with distance-to-center checking and distance-to-opponent checking
+This evaluation function builds on the basic algorithm of rewarding moves which have a higher number of available moves for our player, and punishes for moves which have a high number of moves available to our opponent. 
+If moves have the same utility based on legal moves, then a preference is leaned towards positions in the center of the board, and positions which are closer to our opponent. 
+Using the visualation tools, I determined most losses take place at the edge of the map. This makes sense - positions at the edge have naturally fewer valid moves. 
+By occupying squares in the center of the grid, nearest to the opponent, we can force the opponent against the wall for a victory condition. 
+This algorithm performed well winning roughly 70 - 80% of the time. 
+Additional checks were added to guarantee winning states and losing states are not undervalued.
+
+Heuristic 2: Legal Player Move Count - Legal Opponent Move Count
+This evaluation function was discussed in the lectures and was naturally my first attempt at an heuristic.  
+This algorithm performed well winning roughly 65 - 75% of the time. 
+Additional checks were added to guarantee winning states and losing states are not undervalued.
+
+Heuristic 3: Legal Player Move Count alone
+This evaluation function does not take into account the number of moves the opponent has left after our move. 
+Surprisingly, this algorithm only slightly underperforms Heuristic 2. The nature of the piece's movements makes it difficult to trap an opponent. 
+You have to nearly exhaust the board of options to get your opponent trapped. This heuristic has a winning rate of around 60 - 70%. 
